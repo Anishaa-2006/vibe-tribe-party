@@ -1,0 +1,42 @@
+services:
+  melodycircle:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: melodycircle-app
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - melodycircle-network
+
+  # Development service (optional)
+  melodycircle-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: melodycircle-dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+    networks:
+      - melodycircle-network
+    profiles:
+      - dev
+
+networks:
+  melodycircle-network:
+    driver: bridge

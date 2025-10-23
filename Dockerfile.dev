@@ -1,0 +1,24 @@
+# Development Dockerfile for MelodyCircle
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies for development
+RUN apk add --no-cache git
+
+# Copy package files
+COPY package*.json ./
+COPY bun.lockb ./
+
+# Install all dependencies (including dev dependencies)
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Expose development port
+EXPOSE 8080
+
+# Start development server
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

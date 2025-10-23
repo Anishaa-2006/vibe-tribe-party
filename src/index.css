@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Vibrant, welcoming color palette for women & kids */
+    --background: 280 40% 98%;
+    --foreground: 280 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 280 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 280 10% 15%;
+
+    /* Soft lavender - creative, friendly */
+    --primary: 270 60% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 80% 75%;
+
+    /* Warm peach - welcoming, energetic */
+    --secondary: 20 85% 75%;
+    --secondary-foreground: 280 10% 15%;
+
+    /* Soft neutral */
+    --muted: 280 20% 95%;
+    --muted-foreground: 280 10% 40%;
+
+    /* Fresh mint - fun, playful */
+    --accent: 165 65% 70%;
+    --accent-foreground: 280 10% 15%;
+
+    /* Soft pink for kids */
+    --kids: 340 80% 80%;
+    --kids-foreground: 280 10% 15%;
+
+    /* Sky blue for calm */
+    --calm: 200 70% 75%;
+    --calm-foreground: 280 10% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 280 15% 90%;
+    --input: 280 15% 90%;
+    --ring: 270 60% 65%;
+
+    --radius: 1rem;
+
+    /* Gradients for visual interest */
+    --gradient-primary: linear-gradient(135deg, hsl(270 60% 65%), hsl(270 80% 75%));
+    --gradient-secondary: linear-gradient(135deg, hsl(20 85% 75%), hsl(340 80% 80%));
+    --gradient-accent: linear-gradient(135deg, hsl(165 65% 70%), hsl(200 70% 75%));
+    --gradient-hero: linear-gradient(135deg, hsl(270 60% 65% / 0.1), hsl(165 65% 70% / 0.1));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(270 60% 65% / 0.1);
+    --shadow-card: 0 8px 30px hsl(280 20% 50% / 0.08);
+    --shadow-float: 0 12px 40px hsl(280 20% 50% / 0.12);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 280 15% 10%;
+    --foreground: 280 10% 95%;
+
+    --card: 280 15% 12%;
+    --card-foreground: 280 10% 95%;
+
+    --popover: 280 15% 12%;
+    --popover-foreground: 280 10% 95%;
+
+    --primary: 270 60% 70%;
+    --primary-foreground: 280 15% 10%;
+    --primary-glow: 270 80% 80%;
+
+    --secondary: 20 75% 65%;
+    --secondary-foreground: 280 15% 10%;
+
+    --muted: 280 15% 20%;
+    --muted-foreground: 280 10% 65%;
+
+    --accent: 165 55% 60%;
+    --accent-foreground: 280 15% 10%;
+
+    --kids: 340 70% 70%;
+    --kids-foreground: 280 15% 10%;
+
+    --calm: 200 60% 65%;
+    --calm-foreground: 280 15% 10%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 280 10% 95%;
+
+    --border: 280 15% 20%;
+    --input: 280 15% 20%;
+    --ring: 270 60% 70%;
+
+    --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 8px 30px hsl(0 0% 0% / 0.4);
+    --shadow-float: 0 12px 40px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
